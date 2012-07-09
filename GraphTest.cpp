@@ -26,6 +26,7 @@ BOOST_AUTO_TEST_CASE_TEMPLATE(constructorTest, T, test_types)
     		BOOST_CHECK_EQUAL(vertex.getIndex(), j);
     		BOOST_CHECK_EQUAL(vertex.getIncomingEdges().size(), 0);
     		BOOST_CHECK_EQUAL(vertex.getOutgoingEdges().size(), 0);
+    		BOOST_CHECK_EQUAL(&vertex.getGraph(), &graph);
     	}
     }
 }
