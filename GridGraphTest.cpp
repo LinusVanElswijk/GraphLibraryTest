@@ -15,19 +15,19 @@ typedef boost::mpl::list<float,double> test_types;
 
 BOOST_AUTO_TEST_CASE_TEMPLATE(constructorTest, T, test_types)
 {
-	const unsigned int width = 100,
-			           height = 100;
+	const unsigned int width = 5,
+			           height = 5;
 
-	GridGraph<T> graph(100, 100);
+	GridGraph<T> graph(width, height);
     BOOST_REQUIRE_EQUAL(graph.getNrOfVertices(), width * height);
     BOOST_REQUIRE_EQUAL(graph.getWidth(), width);
     BOOST_REQUIRE_EQUAL(graph.getHeight(), height);
 
     unsigned int expectedIndex = 0;
 
-    for(unsigned int x = 0; x < width; x++)
+    for(unsigned int y = 0; y < width; y++)
     {
-    	for(unsigned int y = 0; y < height; y++, expectedIndex++)
+    	for(unsigned int x = 0; x < height; x++, expectedIndex++)
     	{
     		GridVertex<T> &vertex  = graph.getVertex(x, y);
         	BOOST_CHECK_EQUAL(vertex.getIndex(), expectedIndex);
